@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Dinci</string>
+    <string name="title_activity_refencia">RefenciaActivity</string>
+    <string name="txt_username">Nombre de usuario</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="txt_login">Login</string>
+    <string name="dont_have_account">No tienes cuenta?,</string>
+    <string name="new_account">click aqui!</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_username">Usuario</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_password">Contrasena</string>
+    <string name="hint_confirmPassword">Confirma contrasena</string>
+    <string name="btn_crear">UNETE</string>
+    <string name="toolbar_tittle_createaccount">Crear cuenta</string>
+    <string name="card_username">Ultralisk</string>
+    <string name="card_firstword">Hace</string>
+    <string name="card_time">10 dias</string>
+    <string name="card_likenumber">10 Me Gusta</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="reg_name">nombre</string>
+    <string name="reg_adress">direccion</string>
+    <string name="reg_detail">detalle</string>
+    <string name="txt_resgister">Registrar</string>
+    <string name="hint_phonenumber">telefono</string>
+</resources>

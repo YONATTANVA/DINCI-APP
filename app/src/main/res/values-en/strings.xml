@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_username">Username</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_login">Login</string>
+    <string name="dont_have_account">Dont you have account?,</string>
+    <string name="new_account">click here!</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_password">Passsword</string>
+    <string name="hint_confirmPassword">Confirm passsword</string>
+    <string name="btn_crear">UNETE</string>
+    <string name="toolbar_tittle_createaccount">Crear cuenta</string>
+    <string name="card_username">Ultralisk</string>
+    <string name="card_firstword">Hace</string>
+    <string name="card_time">10 dias</string>
+    <string name="card_likenumber">10 Me Gusta</string>
+    <string name="reg_name">nombre</string>
+    <string name="reg_adress">direccion</string>
+    <string name="reg_detail">deatalle</string>
+    <string name="txt_resgister">Registrar</string>
+    <string name="hint_phonenumber">telefono</string>
+</resources>

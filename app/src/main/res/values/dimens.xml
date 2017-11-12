@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding_login">32dp</dimen>
+    <dimen name="textedit_size">22sp</dimen>
+    <dimen name="dont_have_account">18sp</dimen>
+    <dimen name="activity_vertical_padding">30dp</dimen>
+    <dimen name="textedit_magin_top">10dp</dimen>
+    <dimen name="cardview_height">225dp</dimen>
+    <dimen name="card_border_radius">8dp</dimen>
+    <dimen name="text_margin_vertical">10dp</dimen>
+    <dimen name="text_margin_horizontal">10dp</dimen>
+    <dimen name="card_username_size">25sp</dimen>
+    <dimen name="card_time_size">18sp</dimen>
+    <dimen name="time_margin">5dp</dimen>
+</resources>

@@ -18,8 +18,9 @@
         </activity>
         <activity
             android:name=".view.CreateAccountActivity"
-            android:parentActivityName=".LoginActivity"></activity>
-        <activity android:name=".view.ContainerActivity"></activity>
+            android:parentActivityName=".LoginActivity" />
+        <activity android:name=".view.ContainerActivity" />
+        <activity android:name=".screen"></activity>
     </application>
 
 </manifest>

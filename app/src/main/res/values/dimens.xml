@@ -12,4 +12,5 @@
     <dimen name="card_username_size">25sp</dimen>
     <dimen name="card_time_size">18sp</dimen>
     <dimen name="time_margin">5dp</dimen>
+    <dimen name="height_bottombar">65dp</dimen>
 </resources>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.oldspace.starcraftnet.Model.Incident;
 import com.oldspace.starcraftnet.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerView.IncidentViewHolder>{
 
     private ArrayList<Incident> incidents;
-    private int resource;// el recurso layout cardview
+    private int resource;// el recurso layout cardview(xml)
     private Activity activity;//la actividad desde donde se llama la clase.
 
     public IncidentRecyclerView(ArrayList<Incident> incidents, int resources, Activity activity) {
@@ -43,7 +44,7 @@ public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerV
     @Override
     public void onBindViewHolder(IncidentViewHolder holder, int position) {
         Incident incident = incidents.get(position);//asigna una posicion para cada objeto
-        //holder.cardImage.setImage
+        Picasso.with(activity).load(incident.getImage()).into(holder.cardImage);
         holder.cardName.setText(incident.getName());
         holder.cardTime.setText(incident.getTime());
         holder.cardSolution.setText(incident.getSolution());

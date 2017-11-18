@@ -54,9 +54,9 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<Incident> builIncidents(){
         ArrayList<Incident> incidents = new ArrayList<Incident>();
-        incidents.add(new Incident("","Semaforo malogrado","1 dia","Pendiente"));
-        incidents.add(new Incident("","Pista en mal estado","2 dias","Pendiente"));
-        incidents.add(new Incident("","Demasiada basura en el parque","3 dias","Atendido"));
+        incidents.add(new Incident("http://www.chimbotenlinea.com/sites/default/files/styles/grande/public/field/image/semaforos-malogrados_0.jpg?itok=4UbjQeZ5","Semaforo malogrado","1 dia","Pendiente"));
+        incidents.add(new Incident("http://cde.elcomercio.pe/66/ima/0/0/4/1/2/412676.jpg","Pista en mal estado","2 dias","Pendiente"));
+        incidents.add(new Incident("http://www.eluniversaldf.mx/fotos/grandebasuraparke.jpg","Demasiada basura en el parque","3 dias","Atendido"));
 
         return incidents;
     }

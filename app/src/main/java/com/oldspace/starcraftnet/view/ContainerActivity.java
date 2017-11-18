@@ -26,29 +26,26 @@ public class ContainerActivity extends AppCompatActivity {
 
         //cambiando entre los fragments del bottonbar
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottombar);
+        bottomBar.setDefaultTab(R.id.tabHome);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 switch (tabId){
-                    case R.id.profile:
+                    case R.id.tabProfile:
                         ProfileFragment profileFragment = new ProfileFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerOfFragments,profileFragment).commit();
                         break;
-                    case R.id.home:
+                    case R.id.tabHome:
                         HomeFragment homeFragment = new HomeFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerOfFragments,homeFragment).commit();
                         break;
-                    case R.id.search:
+                    case R.id.tabSearch:
                         SearchFragment searchFragment  = new SearchFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerOfFragments,searchFragment).commit();
                         break;
                 }
             }
         });
-
-    }
-    public void registerIncident(View view){
-
 
     }
 

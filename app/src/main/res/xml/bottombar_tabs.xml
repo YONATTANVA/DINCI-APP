@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        id="@+id/home"
+        id="@+id/tabHome"
         title="Home"
         icon="@drawable/home"
         barColorWhenSelected="@color/colorPrimary"
         />
     <tab
-        id="@+id/search"
+        id="@+id/tabSearch"
         title="Noticias"
         icon="@drawable/search"
         barColorWhenSelected="@color/colorPrimary"
         />
 
     <tab
-        id="@+id/profile"
+        id="@+id/tabProfile"
         title="Yo"
         icon="@drawable/profile"
         barColorWhenSelected="@color/colorPrimary"

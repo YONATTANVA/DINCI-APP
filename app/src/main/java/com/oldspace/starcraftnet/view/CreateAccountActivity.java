@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 import com.oldspace.starcraftnet.R;
-import com.oldspace.starcraftnet.pojos.Citizen;
 
 import org.json.JSONObject;
 
@@ -34,14 +33,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
-    public Citizen newCitizen(){
-        TextView name = (TextView) findViewById(R.id.name);
-        TextView password = (TextView) findViewById(R.id.password);
-        TextView phoneNumber = (TextView) findViewById(R.id.phoneNumber);
-
-        Citizen citizen= new Citizen(0,name.getText().toString(),password.getText().toString(),phoneNumber.getText().toString(),null);
-        return  citizen;
-    }
 
 
 

@@ -4,11 +4,15 @@
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="@dimen/cardview_height"
-    cardview:cardCornerRadius="@dimen/card_border_radius">
+    cardview:cardCornerRadius="@dimen/card_border_radius"
+    android:layout_margin="@dimen/cardview_margin">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/cardview_content_margin"
+        >
         <ImageView
+            android:id="@+id/cardImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/incidentedafault"/>
@@ -21,6 +25,7 @@
             android:layout_gravity="bottom"
             android:background="@color/card_background_text">
             <TextView
+                android:id="@+id/cardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/card_username"
@@ -56,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:button="@drawable/checkbox_selector"/>
                 <TextView
+                    android:id="@+id/cardSolution"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/card_likenumber"

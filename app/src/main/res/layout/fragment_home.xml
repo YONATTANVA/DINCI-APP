@@ -1,7 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     tools:context="com.oldspace.starcraftnet.view.fragment.HomeFragment">
 
@@ -11,57 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="top"
-        android:weightSum="0.8"
-        android:padding="@dimen/padding_login">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.2">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@drawable/incidentes"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="60dp"/>
-        </RelativeLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/Name"
-            android:layout_width="match_parent"
+        android:padding="5dp">
+
+        <include layout="@layout/view_cardview"/>
+        <include layout="@layout/view_cardview"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/TexteditWhite">
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/reg_name"/>
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/adress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TexteditWhite">
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/reg_adress"/>
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TexteditWhite">
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/reg_detail"/>
-        </android.support.design.widget.TextInputLayout>
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_resgister"
-            android:theme="@style/RaisedButtonDark"
-            />
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/heart" />
     </LinearLayout>
 </FrameLayout>

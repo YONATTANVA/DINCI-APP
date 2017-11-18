@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DINCI-APP.iml" filepath="$PROJECT_DIR$/DINCI-APP.iml" />
+      <module fileurl="file://D:\Develoment\DINCI\app dinci\DINCI-APP.iml" filepath="D:\Develoment\DINCI\app dinci\DINCI-APP.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Develoment\DINCI\app dinci\app\app.iml" filepath="D:\Develoment\DINCI\app dinci\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app dinci.iml" filepath="$PROJECT_DIR$/app dinci.iml" />
     </modules>
   </component>
 </project>

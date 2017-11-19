@@ -11,12 +11,22 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.oldspace.starcraftnet.Model.Citizen;
 import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.view.fragment.HomeFragment;
 import com.oldspace.starcraftnet.view.fragment.ProfileFragment;
 import com.oldspace.starcraftnet.view.fragment.SearchFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ContainerActivity extends AppCompatActivity {
 
@@ -49,6 +59,42 @@ public class ContainerActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //TextView mTextView = (TextView) findViewById(R.id.text);
+        //Toast toast = new Toast(getApplicationContext());
+
+
+// Instantiate the RequestQueue.
+        //Toast.makeText(getApplicationContext(),"asdasfasgadsgfa",Toast.LENGTH_LONG).show();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://localhost:3055/api/Citizen/GetAllCitizenDetails/4";
+
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //mTxtDisplay.setText("Response: " + response.toString());
+                        try {
+                            Toast.makeText(getApplicationContext(),response.getString("nameCitizen"),Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+// Access the RequestQueue through your singleton class.
+        //requestQueue(jsObjRequest);
+        queue.add(jsObjRequest);
 
     }
 

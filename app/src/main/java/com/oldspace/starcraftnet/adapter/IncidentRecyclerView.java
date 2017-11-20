@@ -1,6 +1,7 @@
 package com.oldspace.starcraftnet.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.oldspace.starcraftnet.Model.Incident;
 import com.oldspace.starcraftnet.R;
+import com.oldspace.starcraftnet.view.CardViewDetailActivity;
+import com.oldspace.starcraftnet.view.CreateAccountActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,7 +47,7 @@ public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerV
 
     //en este metodo el translado de datos de los objetos del array al cardview
     @Override
-    public void onBindViewHolder(IncidentViewHolder holder, int position) {
+    public void onBindViewHolder(final IncidentViewHolder holder, int position) {
         Incident incident = incidents.get(position);//asigna una posicion para cada objeto
         Picasso.with(activity).load(incident.getImage()).into(holder.cardImage);
         holder.cardName.setText(incident.getName());
@@ -55,7 +58,8 @@ public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerV
         holder.cardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity,"Hola que hace",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity , CardViewDetailActivity.class);
+                activity.startActivity(intent);
             }
         });
 

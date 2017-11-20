@@ -15,4 +15,5 @@
     <dimen name="height_bottombar">65dp</dimen>
     <dimen name="cardview_margin">10dp</dimen>
     <dimen name="cardview_content_margin">5dp</dimen>
+    <dimen name="imageLogin">20dp</dimen>
 </resources>

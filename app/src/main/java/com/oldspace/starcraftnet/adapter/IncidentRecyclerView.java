@@ -1,12 +1,14 @@
 package com.oldspace.starcraftnet.adapter;
 
 import android.app.Activity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oldspace.starcraftnet.Model.Incident;
 import com.oldspace.starcraftnet.R;
@@ -48,6 +50,14 @@ public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerV
         holder.cardName.setText(incident.getName());
         holder.cardTime.setText(incident.getTime());
         holder.cardSolution.setText(incident.getSolution());
+
+        //asignando un evento a la imagen del cardview
+        holder.cardImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(activity,"Hola que hace",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

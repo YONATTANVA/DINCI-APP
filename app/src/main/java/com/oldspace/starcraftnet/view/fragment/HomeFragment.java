@@ -2,6 +2,7 @@ package com.oldspace.starcraftnet.view.fragment;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,10 +11,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.oldspace.starcraftnet.Model.Incident;
 import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.adapter.IncidentRecyclerView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -34,7 +46,7 @@ public class HomeFragment extends Fragment {
 
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        final View view = inflater.inflate(R.layout.fragment_home, container, false);
         showToolbar("Home", false, view);
 
         RecyclerView incidentsRecyclerView = (RecyclerView) view.findViewById(R.id.incidentRecyclerView);
@@ -48,6 +60,40 @@ public class HomeFragment extends Fragment {
         //agregando el layout y adaptador al recycler
         incidentsRecyclerView.setLayoutManager(linearLayoutManager);
         incidentsRecyclerView.setAdapter(adapter);
+
+
+
+        //agregar nuevo incidente
+        FloatingActionButton floatingActionButton = (FloatingActionButton) view.findViewById(R.id.addButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // instantiate the RequestQueue
+                RequestQueue queue = Volley.newRequestQueue(v.getContext());
+                String url ="https://postman-echo.com/ip";
+
+// request a string response asynchronously from the provided URL
+                JsonObjectRequest JsonRequest = new JsonObjectRequest(Request.Method.GET, url,null,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    Toast.makeText(view.getContext(),response.getString("ip"),Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(view.getContext(),"no funciono",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+// add the request to the RequestQueue
+                queue.add(JsonRequest);
+            }
+        });
 
         return view;
     }

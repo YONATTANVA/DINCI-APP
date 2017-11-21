@@ -23,7 +23,7 @@
             android:parentActivityName=".LoginActivity" />
         <activity android:name=".view.ContainerActivity" />
         <activity android:name=".view.CardViewDetailActivity"
-            android:parentActivityName=".view.ContainerActivity"></activity>
+            android:parentActivityName=".view.ContainerActivity"/>
     </application>
 
 </manifest>

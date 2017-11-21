@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -24,6 +25,7 @@ import com.oldspace.starcraftnet.Model.Incident;
 import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.adapter.IncidentRecyclerView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -70,16 +72,26 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // instantiate the RequestQueue
                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                String url ="https://postman-echo.com/ip";
+                String url ="http://127.0.0.1:3055/api/Citizen/GetAllCitizen";
 
 // request a string response asynchronously from the provided URL
-                JsonObjectRequest JsonRequest = new JsonObjectRequest(Request.Method.GET, url,null,
-                        new Response.Listener<JSONObject>() {
+                JsonArrayRequest JsonRequest = new JsonArrayRequest(Request.Method.GET, url,null,
+                        new Response.Listener<JSONArray>() {
                             @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    Toast.makeText(view.getContext(),response.getString("ip"),Toast.LENGTH_SHORT).show();
-                                } catch (JSONException e) {
+                            public void onResponse(JSONArray response) {
+                                try{
+                                    // Loop through the array elements
+                                    for(int i=0;i<response.length();i++){
+                                        // Get current json object
+                                        JSONObject student = response.getJSONObject(i);
+
+                                        // Get the current student (json object) data
+                                        String firstName = student.getString("nameCitizen");
+
+                                        // Display the formatted json data in text view
+                                        Toast.makeText(view.getContext(),firstName,Toast.LENGTH_SHORT).show();
+                                    }
+                                }catch (JSONException e){
                                     e.printStackTrace();
                                 }
                             }

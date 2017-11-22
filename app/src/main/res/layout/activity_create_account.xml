@@ -24,7 +24,18 @@
                     android:theme="@style/TexteditBlack"
                     android:layout_marginTop="@dimen/textedit_magin_top">
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/name"
+                        android:id="@+id/txtDniCitizen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_dni"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TexteditBlack"
+                    android:layout_marginTop="@dimen/textedit_magin_top">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtNameCitizen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_name"/>
@@ -35,27 +46,16 @@
                     android:theme="@style/TexteditBlack"
                     android:layout_marginTop="@dimen/textedit_magin_top">
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/txtPasswordCitizen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint_password"
                         android:inputType="textPassword"
                         />
                 </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:theme="@style/TexteditBlack"
-                    android:layout_marginTop="@dimen/textedit_magin_top">
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/phoneNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint_phonenumber"/>
-                </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:id="@+id/btnCrear"
+                    android:id="@+id/btnNewAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_vertical_padding"

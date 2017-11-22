@@ -72,9 +72,8 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // instantiate the RequestQueue
                 RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                String url ="http://127.0.0.1:3055/api/Citizen/GetAllCitizen";
-
-// request a string response asynchronously from the provided URL
+                String url ="http://www.dinci.somee.com/api/citizen/GetAllCitizen";
+                // request a string response asynchronously from the provided URL
                 JsonArrayRequest JsonRequest = new JsonArrayRequest(Request.Method.GET, url,null,
                         new Response.Listener<JSONArray>() {
                             @Override
@@ -101,6 +100,7 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(view.getContext(),"no funciono",Toast.LENGTH_SHORT).show();
                     }
                 });
+
 
 // add the request to the RequestQueue
                 queue.add(JsonRequest);

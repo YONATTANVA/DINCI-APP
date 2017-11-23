@@ -70,40 +70,7 @@ public class HomeFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // instantiate the RequestQueue
-                RequestQueue queue = Volley.newRequestQueue(v.getContext());
-                String url ="http://www.dinci.somee.com/api/citizen/GetAllCitizen";
-                // request a string response asynchronously from the provided URL
-                JsonArrayRequest JsonRequest = new JsonArrayRequest(Request.Method.GET, url,null,
-                        new Response.Listener<JSONArray>() {
-                            @Override
-                            public void onResponse(JSONArray response) {
-                                try{
-                                    // Loop through the array elements
-                                    for(int i=0;i<response.length();i++){
-                                        // Get current json object
-                                        JSONObject student = response.getJSONObject(i);
 
-                                        // Get the current student (json object) data
-                                        String firstName = student.getString("nameCitizen");
-
-                                        // Display the formatted json data in text view
-                                        Toast.makeText(view.getContext(),firstName,Toast.LENGTH_SHORT).show();
-                                    }
-                                }catch (JSONException e){
-                                    e.printStackTrace();
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(view.getContext(),"no funciono",Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-// add the request to the RequestQueue
-                queue.add(JsonRequest);
             }
         });
 

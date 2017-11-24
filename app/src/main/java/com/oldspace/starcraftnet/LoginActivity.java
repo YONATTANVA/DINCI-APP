@@ -30,7 +30,6 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +66,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
-
-
-}
+  }

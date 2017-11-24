@@ -9,19 +9,17 @@ public class Citizen {
     int id;
     String name;
     String password;
-    String fono;
+    String dni;
     String st;
 
-    public Citizen(int id, String name, String password, String fono, String st) {
+    public Citizen(int id, String name, String password, String dni, String st) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.fono = fono;
+        this.dni = dni;
         this.st = st;
     }
 
-    public Citizen() {
-    }
 
     public int getId() {
         return id;
@@ -47,12 +45,12 @@ public class Citizen {
         this.password = password;
     }
 
-    public String getFono() {
-        return fono;
+    public String getDni() {
+        return dni;
     }
 
-    public void setFono(String fono) {
-        this.fono = fono;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getSt() {

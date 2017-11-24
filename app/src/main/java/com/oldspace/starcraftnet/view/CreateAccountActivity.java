@@ -17,7 +17,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.oldspace.starcraftnet.LoginActivity;
+import com.oldspace.starcraftnet.Model.Citizen;
 import com.oldspace.starcraftnet.R;
+import com.oldspace.starcraftnet.adapter.AdapterCitizen;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,45 +37,21 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         showToolbar(getResources().getString(R.string.toolbar_tittle_createaccount),true);
 
-        final TextInputEditText name = (TextInputEditText) findViewById(R.id.txtNameCitizen);
-        final TextInputEditText pass = (TextInputEditText) findViewById(R.id.txtPasswordCitizen);
-        final TextInputEditText dni = (TextInputEditText) findViewById(R.id.txtDniCitizen);
-        final Button btnunete = (Button) findViewById(R.id.btnNewAccount);
-
-        btnunete.setOnClickListener(new View.OnClickListener() {
+        //Evento crear nuevo usuario
+        final AdapterCitizen adapterCitizen = new AdapterCitizen(this);
+        Button btnNewAccount = (Button) findViewById(R.id.btnNewAccount);
+        btnNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            final String nom = name.getText().toString();
-                final String clave = pass.getText().toString();
-                final String dnii = dni.getText().toString();
+                final TextInputEditText tName = (TextInputEditText) findViewById(R.id.txtNameCitizen);
+                final TextInputEditText tPass = (TextInputEditText) findViewById(R.id.txtPasswordCitizen);
+                final TextInputEditText tDni = (TextInputEditText) findViewById(R.id.txtDniCitizen);
+                final String nameCitizen = tName.getText().toString();
+                final String passwordCitizen = tPass.getText().toString();
+                final String dniCitizen = tDni.getText().toString();
+                final Citizen citizen = new Citizen(0,nameCitizen,passwordCitizen,dniCitizen,null);
 
-                Response.Listener<String> responseListerner = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse=new JSONObject(response);
-                            boolean success =jsonResponse.getBoolean("success");
-                            if (success){
-                                Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
-                                CreateAccountActivity.this.startActivity(intent);
-                            }else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(CreateAccountActivity.this);
-                                builder.setMessage("Register Faild")
-                                        .setNegativeButton("Retry",null)
-                                        .create()
-                                        .show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                };
-                RegisterRequest registerRequest = new RegisterRequest(nom,clave,dnii,responseListerner);
-                RequestQueue queue = Volley.newRequestQueue(CreateAccountActivity.this);
-                queue.add(registerRequest);
-
+                adapterCitizen.createNewAccount(citizen);
 
             }
         });

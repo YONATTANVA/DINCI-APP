@@ -1,4 +1,4 @@
-package com.oldspace.starcraftnet.Model;
+package com.oldspace.starcraftnet.model;
 
 /**
  * Created by YonattanVisita on 18/11/2017.

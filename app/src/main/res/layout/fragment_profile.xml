@@ -31,15 +31,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="70dp">
+            android:layout_marginTop="130dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+
             <TextView
                 android:id="@+id/lblNameCitizen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Yonattan Vallejos"
                 android:textStyle="bold"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:layout_marginBottom="40dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,13 +50,32 @@
             <TextView
                 android:id="@+id/lblDniCitizen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo de usuario:"/>
+            <TextView
+                android:id="@+id/lblTypeCitizen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cantidad de incidentes reportados:"/>
+            <TextView
+                android:id="@+id/lblCountIncidents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgCircle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/incidentedafault"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="center"

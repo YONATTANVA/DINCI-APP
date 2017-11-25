@@ -72,10 +72,12 @@
                 android:text="@string/lorem"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-    <android.support.design.widget.FloatingActionButton
+    <CheckBox
+        android:id="@+id/cardviewCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/plus"
+        android:button="@drawable/checkbox_selector"
         app:layout_anchor="@id/appBar"
-        app:layout_anchorGravity="bottom|end"/>
+        app:layout_anchorGravity="bottom|end"
+        android:elevation="10dp"/>
 </android.support.design.widget.CoordinatorLayout>

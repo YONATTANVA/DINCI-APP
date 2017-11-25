@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.model.Citizen;
 
-import com.oldspace.starcraftnet.adapter.AdapterCitizen;
+import com.oldspace.starcraftnet.adapter.CitizenAdapter;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         showToolbar(getResources().getString(R.string.toolbar_tittle_createaccount),true);
 
         //Evento crear nuevo usuario
-        final AdapterCitizen adapterCitizen = new AdapterCitizen(this);
+        final CitizenAdapter adapterCitizen = new CitizenAdapter(this);
         Button btnNewAccount = (Button) findViewById(R.id.btnNewAccount);
         btnNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override

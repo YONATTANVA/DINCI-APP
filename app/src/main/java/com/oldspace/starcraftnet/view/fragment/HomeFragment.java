@@ -19,6 +19,7 @@ import com.oldspace.starcraftnet.model.Incident;
 import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.adapter.IncidentRecyclerViewAdapter;
 import com.oldspace.starcraftnet.view.CardViewDetailActivity;
+import com.oldspace.starcraftnet.view.NewIncidentActivity;
 
 import java.util.ArrayList;
 
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), CardViewDetailActivity.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), NewIncidentActivity.class);
                 startActivity(intent);
             }
         });

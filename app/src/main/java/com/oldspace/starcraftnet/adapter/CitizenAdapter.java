@@ -65,7 +65,7 @@ public class CitizenAdapter {
 
     public void login(String user, String password){
         url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=" + user + "&password=" + password;
-        //url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=apanta&password=tony";
+        //url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?dni=apanta&password=tony";
         jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,

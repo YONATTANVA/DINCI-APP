@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Dinci</string>
     <string name="title_activity_refencia">RefenciaActivity</string>
-    <string name="txt_username">Nombre de usuario</string>
+    <string name="txt_username">DNI de usuario</string>
     <string name="txt_password">Contraseña</string>
     <string name="txt_login">Login</string>
     <string name="dont_have_account">No tienes cuenta?,</string>

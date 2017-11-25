@@ -25,6 +25,8 @@
         <activity
             android:name=".view.CardViewDetailActivity"
             android:parentActivityName=".view.ContainerActivity" />
+        <activity android:name=".view.NewIncidentActivity"
+            android:parentActivityName=".view.ContainerActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.oldspace.starcraftnet.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.oldspace.starcraftnet.view.CardViewDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by YonattanVisita on 18/11/2017.
@@ -24,11 +26,11 @@ import java.util.ArrayList;
     //como parametro se pasa un arreglo de vistas de cardView, es decir su clase interna
 public class IncidentRecyclerViewAdapter extends RecyclerView.Adapter<IncidentRecyclerViewAdapter.IncidentViewHolder>{
 
-    private ArrayList<Incident> incidents;
+    private List<Incident> incidents;
     private int resource;// el recurso layout cardview(xml)
-    private Activity activity;//la actividad desde donde se llama la clase.
+    private Context activity;//la actividad desde donde se llama la clase.
 
-    public IncidentRecyclerViewAdapter(ArrayList<Incident> incidents, int resources, Activity activity) {
+    public IncidentRecyclerViewAdapter(List<Incident> incidents, int resources, Context activity) {
         this.incidents = incidents;
         this.resource = resources;
         this.activity = activity;

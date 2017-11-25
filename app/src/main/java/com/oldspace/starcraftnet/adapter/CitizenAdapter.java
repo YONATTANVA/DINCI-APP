@@ -2,6 +2,8 @@ package com.oldspace.starcraftnet.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -13,6 +15,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.oldspace.starcraftnet.LoginActivity;
+import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.controller.DinciSingleton;
 import com.oldspace.starcraftnet.model.Citizen;
 import com.oldspace.starcraftnet.view.ContainerActivity;
@@ -61,8 +64,8 @@ public class CitizenAdapter {
     }
 
     public void login(String user, String password){
-        //url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=" + user + "&password=" + password;
-        url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=apanta&password=tony";
+        url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=" + user + "&password=" + password;
+        //url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=apanta&password=tony";
         jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -72,7 +75,7 @@ public class CitizenAdapter {
                     public void onResponse(JSONArray response) {
                         if(response.length() == 1){
                             setIdCitizen(response);
-                            //Toast.makeText(context,"id del usuario" + getIdCitizen() ,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"id del usuario" + getIdCitizen() ,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context.getApplicationContext(), ContainerActivity.class);
                             context.startActivity(intent);
                         }else{
@@ -130,16 +133,38 @@ public class CitizenAdapter {
         DinciSingleton.getIntance(context).addToRequestQueue(stringRequest);
     }
 
-    public void getDetailCitizen(){
-        if(citizen == null) {
-            url = "";
-            jsonObjectRequest = new JsonObjectRequest(
+    public void getDetailCitizen(final View view){
+            //Toast.makeText(context,idCitizen,Toast.LENGTH_LONG).show();
+            url = "http://www.dinci.somee.com/api/Citizen/GetAllCitizenDetails/" + getIdCitizen();
+            jsonArrayRequest = new JsonArrayRequest(
                     Request.Method.GET,
                     url,
                     null,
-                    new Response.Listener<JSONObject>() {
+                    new Response.Listener<JSONArray>() {
                         @Override
-                        public void onResponse(JSONObject response) {
+                        public void onResponse(JSONArray response) {
+                            try {
+                                Toast.makeText(context,"paso",Toast.LENGTH_LONG).show();
+                                JSONObject jsonObject = new JSONObject();
+                                String name = "";
+                                String dni = "";
+                                for( int i = 0; i < response.length(); i++){
+                                    jsonObject = response.getJSONObject(i);
+                                    name = jsonObject.getString("nameCitizen");
+                                    dni = jsonObject.getString("phonenumberCitizen");
+                                }
+
+                                String typeUser;
+                                int countIncidents;
+                                //switch ()
+                                TextView tName = view.findViewById(R.id.lblNameCitizen);
+                                TextView tDni = view.findViewById(R.id.lblDniCitizen);
+                                tName.setText(name);
+                                tDni.setText(dni);
+                                Toast.makeText(context,"termino",Toast.LENGTH_LONG).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
 
                         }
                     },
@@ -150,7 +175,7 @@ public class CitizenAdapter {
                         }
                     }
             );
-            DinciSingleton.getIntance(context).addToRequestQueue(jsonObjectRequest);
-        }
+            DinciSingleton.getIntance(context).addToRequestQueue(jsonArrayRequest);
+
     }
 }

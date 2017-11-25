@@ -1,7 +1,11 @@
 package com.oldspace.starcraftnet.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -10,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.oldspace.starcraftnet.R;
 import com.oldspace.starcraftnet.controller.DinciSingleton;
 import com.oldspace.starcraftnet.model.Incident;
 
@@ -40,8 +45,7 @@ public class IncidentAdapter {
     public IncidentAdapter(Context context){
         this.context = context;
         this.idCitizen = setIdCitizen();
-        getIncidentsByApi();
-        mensajePrueba();
+
     }
 
     private int setIdCitizen(){
@@ -51,20 +55,11 @@ public class IncidentAdapter {
         return  this.idCitizen;
     }
 
-    public JSONArray getIncidentsArray(){
-        getIncidentsByApi();
-        return jsonArray;
-    }
-
-    public void mensajePrueba(){
-        Toast.makeText(context,"Final : " +items.size(),Toast.LENGTH_LONG).show();
-    }
-
-    public void getIncidentsByApi(){
+    public void getIncidentsByApi(final View view){
 
 
 
-        url = "http://www.dinci.somee.com/api/incident/getallincidentxuser/1";
+        url = "http://www.dinci.somee.com/api/incident/getallincidentxuser/" + this.idCitizen;
 
 
 
@@ -75,18 +70,14 @@ public class IncidentAdapter {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        /*JSONObject objeto = new JSONObject();
-                        for (int i = 0; i < response.length(); i++){
-                            try {
-                                objeto = response.getJSONObject(i);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }*/
                         items = parseJson(response);
 
-                        Toast.makeText(context,"pasoOOO",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context,"pasoOOO con " + items.size() + " items",Toast.LENGTH_LONG).show();
+                        if(items.size() > 0){
+                            showRecyclerView(view, items);
+                        }
+
+                        //Toast.makeText(context,"FinalizoOOO",Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -98,7 +89,6 @@ public class IncidentAdapter {
 
         );
         DinciSingleton.getIntance(context).addToRequestQueue(jsonArrayRequest);
-
     }
 
     public List<Incident> parseJson(JSONArray jsonArray){
@@ -176,5 +166,19 @@ public class IncidentAdapter {
         DinciSingleton.getIntance(context).addToRequestQueue(jsonObjectRequest);
     }
 
+    public void showRecyclerView(View view, List<Incident> incidents){
+        RecyclerView incidentsRecyclerView = (RecyclerView) view.findViewById(R.id.incidentRecyclerView);
+
+        //creando un layoutManager
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        //creando un adapter
+        IncidentRecyclerViewAdapter adapter = new IncidentRecyclerViewAdapter(incidents,R.layout.view_cardview,context);
+
+        //agregando el layout y adaptador al recycler
+        incidentsRecyclerView.setLayoutManager(linearLayoutManager);
+        incidentsRecyclerView.setAdapter(adapter);
+
+    }
 
 }

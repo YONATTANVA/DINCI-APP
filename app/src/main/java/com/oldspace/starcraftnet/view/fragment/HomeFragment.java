@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.oldspace.starcraftnet.adapter.IncidentAdapter;
 import com.oldspace.starcraftnet.model.Incident;
@@ -36,27 +37,14 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
-        IncidentAdapter incidentAdapter = new IncidentAdapter(container.getContext());
-        /*ArrayList<Incident> incidents = new ArrayList<>();
-        incidents = incidentAdapter.getIncidents();*/
-
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
         showToolbar("Home", false, view);
 
-        RecyclerView incidentsRecyclerView = (RecyclerView) view.findViewById(R.id.incidentRecyclerView);
 
-        /*//creando un layoutManager
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        //creando un adapter
-        IncidentRecyclerViewAdapter adapter = new IncidentRecyclerViewAdapter(incidents,R.layout.view_cardview,getActivity());
-
-        //agregando el layout y adaptador al recycler
-        incidentsRecyclerView.setLayoutManager(linearLayoutManager);
-        incidentsRecyclerView.setAdapter(adapter);
-*/
-
+        IncidentAdapter incidentAdapter = new IncidentAdapter(container.getContext());
+        incidentAdapter.getIncidentsByApi(view);
+        //Toast.makeText(container.getContext(),"Aleluya!!!",Toast.LENGTH_LONG).show();
 
         //agregar nuevo incidente
         FloatingActionButton floatingActionButton = (FloatingActionButton) view.findViewById(R.id.addButton);

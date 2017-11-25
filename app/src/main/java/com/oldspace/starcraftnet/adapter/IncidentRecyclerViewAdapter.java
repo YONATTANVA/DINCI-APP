@@ -22,13 +22,13 @@ import java.util.ArrayList;
 
 //esta clase se encarga de la lista, reciclar
     //como parametro se pasa un arreglo de vistas de cardView, es decir su clase interna
-public class IncidentRecyclerView extends RecyclerView.Adapter<IncidentRecyclerView.IncidentViewHolder>{
+public class IncidentRecyclerViewAdapter extends RecyclerView.Adapter<IncidentRecyclerViewAdapter.IncidentViewHolder>{
 
     private ArrayList<Incident> incidents;
     private int resource;// el recurso layout cardview(xml)
     private Activity activity;//la actividad desde donde se llama la clase.
 
-    public IncidentRecyclerView(ArrayList<Incident> incidents, int resources, Activity activity) {
+    public IncidentRecyclerViewAdapter(ArrayList<Incident> incidents, int resources, Activity activity) {
         this.incidents = incidents;
         this.resource = resources;
         this.activity = activity;

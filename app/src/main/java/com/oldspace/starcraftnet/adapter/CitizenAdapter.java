@@ -27,16 +27,17 @@ import java.util.HashMap;
  * Created by YonattanVisita on 22/11/2017.
  */
 
-public class AdapterCitizen {
-    private int idCitizen;
+public class CitizenAdapter {
+    static int idCitizen = 0;
     //private RequestQueue requestQueue; AHORA SE USA SINGLETON
     JsonArrayRequest jsonArrayRequest;
     JsonObjectRequest jsonObjectRequest;
     StringRequest stringRequest;
     private String url = "";
     Context context;
+    Citizen citizen = null;
 
-    public AdapterCitizen(Context context){
+    public CitizenAdapter(Context context){
         this.context = context;
         //Creando una nueva cola de peticiones, ACTUALIZADO: AHORA SE USA SINGLETON
         //this.requestQueue = Volley.newRequestQueue(context.getApplicationContext());
@@ -60,7 +61,8 @@ public class AdapterCitizen {
     }
 
     public void login(String user, String password){
-        url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=" + user + "&password=" + password;
+        //url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=" + user + "&password=" + password;
+        url = "http://www.dinci.somee.com/api/citizen/GetAllCitizenLogin/?user=apanta&password=tony";
         jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -70,7 +72,7 @@ public class AdapterCitizen {
                     public void onResponse(JSONArray response) {
                         if(response.length() == 1){
                             setIdCitizen(response);
-                            Toast.makeText(context,"id del usuario" + getIdCitizen() ,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context,"id del usuario" + getIdCitizen() ,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context.getApplicationContext(), ContainerActivity.class);
                             context.startActivity(intent);
                         }else{
@@ -126,5 +128,29 @@ public class AdapterCitizen {
             }
         };
         DinciSingleton.getIntance(context).addToRequestQueue(stringRequest);
+    }
+
+    public void getDetailCitizen(){
+        if(citizen == null) {
+            url = "";
+            jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(context,"Error :" + error.toString(),Toast.LENGTH_LONG).show();
+                        }
+                    }
+            );
+            DinciSingleton.getIntance(context).addToRequestQueue(jsonObjectRequest);
+        }
     }
 }

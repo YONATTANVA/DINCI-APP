@@ -6,11 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.oldspace.starcraftnet.adapter.AdapterCitizen;
+import com.oldspace.starcraftnet.adapter.CitizenAdapter;
 import com.oldspace.starcraftnet.view.CreateAccountActivity;
 
 
@@ -23,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final AdapterCitizen adapterCitizen = new AdapterCitizen(this);
+        final CitizenAdapter adapterCitizen = new CitizenAdapter(this);
 
         //evento para el login
         Button btnLogin = (Button) findViewById(R.id.btnLogin);

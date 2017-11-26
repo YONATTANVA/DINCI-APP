@@ -49,9 +49,9 @@ public class IncidentRecyclerViewAdapter extends RecyclerView.Adapter<IncidentRe
     public void onBindViewHolder(final IncidentViewHolder holder, int position) {
         Incident incident = incidents.get(position);//asigna una posicion para cada objeto
         Picasso.with(activity).load(incident.getImage()).into(holder.cardImage);
-        holder.cardName.setText(incident.getName());
-        holder.cardTime.setText(incident.getTime());
-        holder.cardSolution.setText(incident.getSolution());
+        holder.cardName.setText(incident.getType());
+        holder.cardTime.setText(incident.getPlace());
+        holder.cardSolution.setText(incident.getDetail());
 
         //asignando un evento a la imagen del cardview
         holder.cardImage.setOnClickListener(new View.OnClickListener() {

@@ -35,17 +35,6 @@
                 android:theme="@style/TexteditBlack"
                 android:layout_marginTop="@dimen/textedit_magin_top">
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txtDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Fecha"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TexteditBlack"
-                android:layout_marginTop="@dimen/textedit_magin_top">
-                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txtPlace"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,7 +46,7 @@
                 android:theme="@style/TexteditBlack"
                 android:layout_marginTop="@dimen/textedit_magin_top">
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/txtDescription"
+                    android:id="@+id/txtDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Descripcion"/>

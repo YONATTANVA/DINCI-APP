@@ -6,15 +6,17 @@ package com.oldspace.starcraftnet.model;
 
 public class Incident {
     private String image;
-    private String name;
-    private String time;
-    private String solution;
+    private String type;
+    private String detail;
+    private String place;
+    private int idCitizen;
 
-    public Incident(String image, String name, String time, String solution) {
+    public Incident(String image, String type, String detail, String place, int idCitizen) {
         this.image = image;
-        this.name = name;
-        this.time = time;
-        this.solution = solution;
+        this.type = type;
+        this.detail = detail;
+        this.place = place;
+        this.idCitizen = idCitizen;
     }
 
     public String getImage() {
@@ -25,27 +27,35 @@ public class Incident {
         this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public String getType() {
+        return type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getTime() {
-        return time;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
-    public String getSolution() {
-        return solution;
+    public String getPlace() {
+        return place;
     }
 
-    public void setSolution(String solution) {
-        this.solution = solution;
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public int getIdCitizen() {
+        return idCitizen;
+    }
+
+    public void setIdCitizen(int idCitizen) {
+        this.idCitizen = idCitizen;
     }
 }

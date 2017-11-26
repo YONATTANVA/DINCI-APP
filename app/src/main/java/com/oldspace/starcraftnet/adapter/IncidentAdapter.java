@@ -99,9 +99,9 @@ public class IncidentAdapter {
                 jsonObject = jsonArray.getJSONObject(i);
                 String image = "http://4.bp.blogspot.com/_u3ZcZnSYQw4/TLhahDj6_7I/AAAAAAAAAA0/gLQrOCMTyAQ/s1600/basura1%5B1%5D.jpg";
                 String name = jsonObject.getString("descriptionIncidentType");
-                String time = jsonObject.getString("dateIncident");
+                String time = jsonObject.getString("timpoTranscurridoIncident");
                 String solution = jsonObject.getString("descriptionStatus");
-                incidents.add(new Incident(image,name,time,solution));
+                incidents.add(new Incident(image,name,time,solution,idCitizen));
             } catch (JSONException e) {
                 Log.e("JsonObjet", "Se ha producido al crear la lista de incidentes. "+ e.getMessage());
             }
@@ -110,9 +110,10 @@ public class IncidentAdapter {
     }
 
 
-    public void addNewIncident(Incident incident){
+    public void addNewIncident(final Incident incident){
 
-        url = "";
+
+        url = "http://www.dinci.somee.com/api/incident/AddIncident";
         stringRequest = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -136,7 +137,12 @@ public class IncidentAdapter {
             @Override
             public HashMap<String, String> getParams(){
                 HashMap<String, String> parameters = new HashMap<>();
-                parameters.put("","");
+                parameters.put("idIncidentType",incident.getType());
+                parameters.put("ubicationIncident",incident.getPlace());
+                parameters.put("ubicationIncident",incident.getDetail());
+                parameters.put("idCitizen",String.valueOf(idCitizen));
+                parameters.put("idEmployee",String.valueOf(0));
+
                 return parameters;
             }
         };
